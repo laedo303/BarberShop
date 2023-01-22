@@ -1,0 +1,57 @@
+.reserve {
+  padding: 62px 0 124px;
+}
+
+.reserve__title {
+  margin: 0 0 24px;
+  font-weight: 400;
+  font-size: 40px;
+  text-transform: uppercase;
+  color: #f6f3e3;
+}
+
+.reserve__list {
+  margin: 0 0 72px;
+  padding-left: 20px;
+}
+
+.reserve__item {
+  line-height: 150%;
+  color: #bfbdb2;
+  margin-bottom: 8px;
+}
+
+.reserve__item:last-child {
+  margin-bottom: 0;
+}
+
+.reserve__form-container {
+  margin-bottom: 40px;
+}
+
+.reserve__fieldset {
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 72px;
+  gap: 8px;
+}
+
+.reserve__legend {
+  flex-basis: 100%;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 100%;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.reserve__fieldset_sub {
+  flex-basis: 100%;
+  margin-bottom: 24px;
+}
+
+.reserve__fieldset:last-child {
+  margin-bottom: 0;
+}
