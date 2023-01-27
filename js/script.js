@@ -1,3 +1,15 @@
+const API_URL = 'https://same-dandy-leather.glitch.me/api';
+
+/*
+Доступные методы:
+GET /api - получить список услуг
+GET /api?service={n} - получить список барберов
+GET /api?spec={n} - получить список месяца работы барбера
+GET /api?spec={n}&month={n} - получить список дней работы барбера
+GET /api?spec={n}&month={n}&day={n} - получить список свободных часов барбера
+POST /api/order - оформить заказ
+*/
+
 const addPreload = (elem) => {
   elem.classList.add('preload');
 };
@@ -83,4 +95,39 @@ const initSlider = () => {
   });
 };
 
-window.addEventListener('DOMContentLoaded', initSlider);
+const renderPrice = (wrapper, data) => {
+  data.forEach(item => {
+    const priceItem = document.createElement('li');
+    priceItem.classList.add('price__item');
+
+    priceItem.innerHTML = `
+      <span class="price__item-title">${item.name}</span>
+      <span class="price__item-count">${item.price} руб</span>
+    `;
+
+    wrapper.append(priceItem);
+  });
+}
+
+
+const initServise = () => {
+  const priceList = document.querySelector('.price__list');
+  priceList.textContent = '';
+
+  addPreload(priceList);
+
+  fetch(API_URL)
+    .then(response => response.json())
+    .then(data => {
+      renderPrice(priceList, data);
+      removePreload(priceList);
+    })
+};
+
+
+const init = () => {
+  initSlider();
+  initServise();
+};
+
+window.addEventListener('DOMContentLoaded', init);
